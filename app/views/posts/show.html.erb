@@ -8,4 +8,27 @@
   <%= @post.content %>
 </p>
 
-<%= link_to 'Back to Home', posts_path %>
+
+<h2>Comments</h2>
+<% @post.comments.each do |comment| %>
+
+
+  <p>
+    Comment:
+    <%= comment.comment %>
+  </p>
+<% end %>
+
+<h2>Add a comment:</h2>
+<%= form_for Comment.new, url: post_comments_path(@post) do |f| %>
+
+  <p>
+    <%= f.label :comment %><br>
+    <%= f.text_area :comment %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+ <%= link_to 'Edit post', edit_post_path(@post) %> | <%= link_to 'Back to Home', posts_path %>
