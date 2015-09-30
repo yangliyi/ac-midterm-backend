@@ -1,12 +1,28 @@
-<p>
-  Topic:
-  <%= @post.topic %>
-</p>
+<table>
+  <tr>
+    <td>
+      <p>Topic:<%= @post.topic %></p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h4>Category:
+      <% @post.categories.each do |c|%>
+      <%= c.name %> /
+      <% end %>
+      </h4>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p>Content:<%= @post.content %></p>
+    </td>
+  </tr>
+</table>
 
-<p>
-  Content:
-  <%= @post.content %>
-</p>
+
+
+
 
 
 <h2>Comments</h2>

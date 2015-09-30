@@ -4,6 +4,7 @@
   <tr>
     <th>Topic</th>
     <th>Time</th>
+    <th>Category</th>
     <th colspan="2"></th>
   </tr>
 
@@ -11,6 +12,11 @@
     <tr>
       <td><%= post.topic %></td>
       <td><%= post.updated_at.strftime('%b %d %Y %H:%M')%></td>
+      <td>
+        <% post.categories.each do |c|%>
+        <%= c.name %> /
+        <% end %>
+      </td>
       <td><%= link_to 'Detail', post_path(post)%></td>
       <td><%= link_to 'Edit', edit_post_path(post)%></td>
       <td><%#= link_to 'Delete', post_path(post), method: :delete, data: { confirm: 'Are you sure?' } %></td>
